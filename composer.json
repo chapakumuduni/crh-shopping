@@ -1,0 +1,16 @@
+{
+    "name": "admin/ecommerce_admin",
+    "autoload": {
+        "psr-4": {
+            "Admin\\EcommerceAdmin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rumeth"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^3.1"
+    }
+}

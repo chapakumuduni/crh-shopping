@@ -1,0 +1,9 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+}
