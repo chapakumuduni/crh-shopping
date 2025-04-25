@@ -1,18 +1,5 @@
 <!DOCTYPE html>
 
-<?php
-session_start();
-require_once('db.php');
-
-if (!isset($_SESSION['admin_logged_in'])) {
-    header("Location: login.php");
-    exit();
-}
-
-header("Location: dashboard.php");
-exit();
-?>
-
 <html lang="en">
 <head>
 	<title>Home</title>
@@ -67,10 +54,6 @@ exit();
 							Help & FAQs
 						</a>
 
-						<a href="user-profile.php" class="flex-c-m trans-04 p-lr-25">
-							My Account
-						</a>
-
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							EN
 						</a>
@@ -78,6 +61,20 @@ exit();
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							USD
 						</a>
+						
+						<?php session_start(); if ( isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) { ?>
+						<a href="user-profile.php" class="flex-c-m trans-04 p-lr-25">
+							My Account
+						</a>
+						<a href="logout.php" class="flex-c-m trans-04 p-lr-25">
+							Logout
+						</a>
+						<?php } else { ?>
+						<a href="user-login.php" class="flex-c-m trans-04 p-lr-25">
+							Login
+						</a>
+						<?php } ?>
+						
 					</div>
 				</div>
 			</div>
@@ -183,10 +180,6 @@ exit();
 							Help & FAQs
 						</a>
 
-						<a href="user-profile.php" class="flex-c-m p-lr-10 trans-04">
-							My Account
-						</a>
-
 						<a href="#" class="flex-c-m p-lr-10 trans-04">
 							EN
 						</a>
@@ -194,6 +187,19 @@ exit();
 						<a href="#" class="flex-c-m p-lr-10 trans-04">
 							USD
 						</a>
+						
+						<?php session_start(); if ( isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) { ?>
+						<a href="user-profile.php" class="flex-c-m trans-04 p-lr-25">
+							My Account
+						</a>
+						<a href="logout.php" class="flex-c-m trans-04 p-lr-25">
+							Logout
+						</a>
+						<?php } else { ?>
+						<a href="user-login.php" class="flex-c-m trans-04 p-lr-25">
+							Login
+						</a>
+						<?php } ?>
 					</div>
 				</li>
 			</ul>
@@ -201,14 +207,6 @@ exit();
 			<ul class="main-menu-m">
 				<li>
 					<a href="index.html">Home</a>
-					<ul class="sub-menu-m">
-						<li><a href="index.html">Homepage 1</a></li>
-						<li><a href="home-02.html">Homepage 2</a></li>
-						<li><a href="home-03.html">Homepage 3</a></li>
-					</ul>
-					<span class="arrow-main-menu-m">
-						<i class="fa fa-angle-right" aria-hidden="true"></i>
-					</span>
 				</li>
 
 				<li>

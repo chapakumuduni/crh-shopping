@@ -34,6 +34,9 @@ if(isset($_POST["signInBtn"])) {
         $_SESSION["userName"] = $usersName;
         $verifyPassword = true; //password_verify($pass,$result['password']);
         if($uname == $usersName && $verifyPassword){ 
+		        $_SESSION['user_logged_in'] = true;
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['user_role'] = $user['role'];
             header("Location:index.php");
         }else{
             $message = '
@@ -113,7 +116,7 @@ if(isset($_POST["signInBtn"])) {
             <h2>Sign In</h2>
             <label>
                 <span>User Name</span>
-                <input type="text" name="loginUsernaem" required>
+                <input type="text" name="loginUsername" required>
             </label>
             <label>
                 <span>Password</span>
@@ -122,10 +125,14 @@ if(isset($_POST["signInBtn"])) {
             <label>
             <input type="checkbox" id="showPassword"> Show Password
             </label>
-            <button class="submit" type="submit" name="singInBtn">Sign In</button>
+            <button class="submit" type="submit" name="signInBtn">Sign In</button>
         </form>
         <div class="social-media">
             <p><?=$message ?></p>
+        </div>
+		
+		<div class="social-media">
+            <a href="login.php">Admin User Sign In</a>
         </div>
     </div>
 
@@ -174,6 +181,9 @@ if(isset($_POST["signInBtn"])) {
                     <input type="password" name="signUpPassword" required>
                 </label>
                 <button type="submit" class="submit" name="btnSignUp">Sign Up</button>
+				<div class="social-media">
+					<a href="register.php">Admin User Sign Up</a>
+				</div>
             </div>
             </form>
         </div>

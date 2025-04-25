@@ -7,6 +7,6 @@ session_unset();
 session_destroy();
 
 // Redirect to login page with logout message flag
-header("Location: login.php?logout=1");
+header("Location: user-login.php?logout=1");
 exit();
 ?>
